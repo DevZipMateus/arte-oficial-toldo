@@ -17,157 +17,162 @@ const CatalogoPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Image data mapping based on folder structure
+  // Helper function to encode image paths
+  const getImagePath = (folder: string, subfolder: string, filename: string) => {
+    return `/lovable-uploads/${encodeURIComponent(folder)}/${encodeURIComponent(subfolder)}/${encodeURIComponent(filename)}`;
+  };
+
+  // Image data mapping based on folder structure  
   const imageData: Record<string, string[]> = {
     // Toldo Fixo subcategories
     'toldo-bola': [
-      '/lovable-uploads/toldo fixo/toldo bola/Cópia de IMG_3647.jpg',
-      '/lovable-uploads/toldo fixo/toldo bola/Cópia de IMG_4035.jpg',
-      '/lovable-uploads/toldo fixo/toldo bola/Cópia de IMG_4046.jpg',
-      '/lovable-uploads/toldo fixo/toldo bola/Cópia de IMG_9613.jpg',
-      '/lovable-uploads/toldo fixo/toldo bola/Cópia de IMG_9614.jpg'
+      getImagePath('toldo fixo', 'toldo bola', 'Cópia de IMG_3647.jpg'),
+      getImagePath('toldo fixo', 'toldo bola', 'Cópia de IMG_4035.jpg'),
+      getImagePath('toldo fixo', 'toldo bola', 'Cópia de IMG_4046.jpg'),
+      getImagePath('toldo fixo', 'toldo bola', 'Cópia de IMG_9613.jpg'),
+      getImagePath('toldo fixo', 'toldo bola', 'Cópia de IMG_9614.jpg')
     ],
     'toldo-curvo-lona': [
-      '/lovable-uploads/toldo fixo/toldo curvo lona/Cópia de A7BA7293-C6A7-40BA-B0E9-2BD700AC281A.JPG',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/Cópia de IMG_1633.jpg',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/Cópia de IMG_1740.jpg',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/IMG-20250815-WA0178.jpg',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/IMG-20250815-WA0179.jpg',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/IMG-20250815-WA0180.jpg',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/IMG-20250903-WA0119.jpg',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/IMG-20250903-WA0120.jpg'
+      getImagePath('toldo fixo', 'toldo curvo lona', 'Cópia de A7BA7293-C6A7-40BA-B0E9-2BD700AC281A.JPG'),
+      getImagePath('toldo fixo', 'toldo curvo lona', 'Cópia de IMG_1633.jpg'),
+      getImagePath('toldo fixo', 'toldo curvo lona', 'Cópia de IMG_1740.jpg'),
+      getImagePath('toldo fixo', 'toldo curvo lona', 'IMG-20250815-WA0178.jpg'),
+      getImagePath('toldo fixo', 'toldo curvo lona', 'IMG-20250815-WA0179.jpg'),
+      getImagePath('toldo fixo', 'toldo curvo lona', 'IMG-20250815-WA0180.jpg'),
+      getImagePath('toldo fixo', 'toldo curvo lona', 'IMG-20250903-WA0119.jpg'),
+      getImagePath('toldo fixo', 'toldo curvo lona', 'IMG-20250903-WA0120.jpg')
     ],
     'toldo-fixo-lona': [
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de 1a9ad0fc-e1f1-4f9e-a5fc-e57b66ecf5f8.JPG',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de A4A2D929-B852-440D-B003-C0FBAC1FEDD5.JPG',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de IMG_3388.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de IMG_3509.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de IMG_3522.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de IMG_4266.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de IMG_7454.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de PHOTO-2023-07-14-16-23-30.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de PHOTO-2024-02-27-17-18-20.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de PHOTO-2024-03-01-18-45-00.jpg'
+      getImagePath('toldo fixo', 'toldo fixo lona', 'Cópia de 1a9ad0fc-e1f1-4f9e-a5fc-e57b66ecf5f8.JPG'),
+      getImagePath('toldo fixo', 'toldo fixo lona', 'Cópia de A4A2D929-B852-440D-B003-C0FBAC1FEDD5.JPG'),
+      getImagePath('toldo fixo', 'toldo fixo lona', 'Cópia de IMG_3388.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo lona', 'Cópia de IMG_3509.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo lona', 'Cópia de IMG_3522.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo lona', 'Cópia de IMG_4266.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo lona', 'Cópia de IMG_7454.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo lona', 'Cópia de PHOTO-2023-07-14-16-23-30.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo lona', 'Cópia de PHOTO-2024-02-27-17-18-20.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo lona', 'Cópia de PHOTO-2024-03-01-18-45-00.jpg')
     ],
     'toldo-lua-lona': [
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_0182.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_3094.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_3095.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_3097.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_3786.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_4412.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_4610.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_8423.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de dcd43dad-a635-425e-b561-9afaeb24bee9.JPG'
+      getImagePath('toldo fixo', 'toldo lua lona', 'Cópia de IMG_0182.jpg'),
+      getImagePath('toldo fixo', 'toldo lua lona', 'Cópia de IMG_3094.jpg'),
+      getImagePath('toldo fixo', 'toldo lua lona', 'Cópia de IMG_3095.jpg'),
+      getImagePath('toldo fixo', 'toldo lua lona', 'Cópia de IMG_3097.jpg'),
+      getImagePath('toldo fixo', 'toldo lua lona', 'Cópia de IMG_3786.jpg'),
+      getImagePath('toldo fixo', 'toldo lua lona', 'Cópia de IMG_4412.jpg'),
+      getImagePath('toldo fixo', 'toldo lua lona', 'Cópia de IMG_4610.jpg'),
+      getImagePath('toldo fixo', 'toldo lua lona', 'Cópia de IMG_8423.jpg'),
+      getImagePath('toldo fixo', 'toldo lua lona', 'Cópia de dcd43dad-a635-425e-b561-9afaeb24bee9.JPG')
     ],
     'toldo-lua-policarbonato': [
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de IMG_1038.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de IMG_2124.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de IMG_4170.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de IMG_8717.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de IMG_8763.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de dba4133b-32e4-43f9-844c-7755f605d966.JPG',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de ec39413f-bb6e-455e-89d8-eda9a8bb6679.JPG',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de ff5344d1-c824-4e38-94c7-389fa7cb3759.JPG'
+      getImagePath('toldo fixo', 'toldo lua em policarboneto', 'Cópia de IMG_1038.jpg'),
+      getImagePath('toldo fixo', 'toldo lua em policarboneto', 'Cópia de IMG_2124.jpg'),
+      getImagePath('toldo fixo', 'toldo lua em policarboneto', 'Cópia de IMG_4170.jpg'),
+      getImagePath('toldo fixo', 'toldo lua em policarboneto', 'Cópia de IMG_8717.jpg'),
+      getImagePath('toldo fixo', 'toldo lua em policarboneto', 'Cópia de IMG_8763.jpg'),
+      getImagePath('toldo fixo', 'toldo lua em policarboneto', 'Cópia de dba4133b-32e4-43f9-844c-7755f605d966.JPG'),
+      getImagePath('toldo fixo', 'toldo lua em policarboneto', 'Cópia de ec39413f-bb6e-455e-89d8-eda9a8bb6679.JPG'),
+      getImagePath('toldo fixo', 'toldo lua em policarboneto', 'Cópia de ff5344d1-c824-4e38-94c7-389fa7cb3759.JPG')
     ],
     'passarela-lona': [
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_1835.JPG',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_3101.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_3102.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_3116.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_3121.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_3689.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_9734.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/IMG-20250829-WA0211.jpg'
+      getImagePath('toldo fixo', 'toldo passarela lona', 'Cópia de IMG_1835.JPG'),
+      getImagePath('toldo fixo', 'toldo passarela lona', 'Cópia de IMG_3101.jpg'),
+      getImagePath('toldo fixo', 'toldo passarela lona', 'Cópia de IMG_3102.jpg'),
+      getImagePath('toldo fixo', 'toldo passarela lona', 'Cópia de IMG_3116.jpg'),
+      getImagePath('toldo fixo', 'toldo passarela lona', 'Cópia de IMG_3121.jpg'),
+      getImagePath('toldo fixo', 'toldo passarela lona', 'Cópia de IMG_3689.jpg'),
+      getImagePath('toldo fixo', 'toldo passarela lona', 'Cópia de IMG_9734.jpg'),
+      getImagePath('toldo fixo', 'toldo passarela lona', 'IMG-20250829-WA0211.jpg')
     ],
     'passarela-policarbonato': [
-      '/lovable-uploads/toldo fixo/toldo passarela em policarboneto/Cópia de 05645B1C-1ADF-4D17-A1B4-EFC87A7AB006.JPG',
-      '/lovable-uploads/toldo fixo/toldo passarela em policarboneto/Cópia de IMG_3034.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela em policarboneto/Cópia de f2af55e5-7209-4a86-8c7e-b65767941a5f.JPG',
-      '/lovable-uploads/toldo fixo/toldo passarela em policarboneto/IMG-20250704-WA0167.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela em policarboneto/IMG-20250704-WA0168.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela em policarboneto/IMG-20250704-WA0170.jpg'
+      getImagePath('toldo fixo', 'toldo passarela em policarboneto', 'Cópia de 05645B1C-1ADF-4D17-A1B4-EFC87A7AB006.JPG'),
+      getImagePath('toldo fixo', 'toldo passarela em policarboneto', 'Cópia de IMG_3034.jpg'),
+      getImagePath('toldo fixo', 'toldo passarela em policarboneto', 'Cópia de f2af55e5-7209-4a86-8c7e-b65767941a5f.JPG'),
+      getImagePath('toldo fixo', 'toldo passarela em policarboneto', 'IMG-20250704-WA0167.jpg'),
+      getImagePath('toldo fixo', 'toldo passarela em policarboneto', 'IMG-20250704-WA0168.jpg'),
+      getImagePath('toldo fixo', 'toldo passarela em policarboneto', 'IMG-20250704-WA0170.jpg')
     ],
     'toldo-reto-policarbonato': [
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de 1a9ad0fc-e1f1-4f9e-a5fc-e57b66ecf5f8.JPG',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de A4A2D929-B852-440D-B003-C0FBAC1FEDD5.JPG',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_3208.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_3211.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_3388.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_3509.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_3522.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_4266.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_7454.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de PHOTO-2023-07-14-16-23-30.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de PHOTO-2024-02-27-17-18-20.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de PHOTO-2024-03-01-18-45-00.jpg'
+      getImagePath('toldo fixo', 'toldo fixo policarboneto', 'Cópia de 1a9ad0fc-e1f1-4f9e-a5fc-e57b66ecf5f8.JPG'),
+      getImagePath('toldo fixo', 'toldo fixo policarboneto', 'Cópia de A4A2D929-B852-440D-B003-C0FBAC1FEDD5.JPG'),
+      getImagePath('toldo fixo', 'toldo fixo policarboneto', 'Cópia de IMG_3208.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo policarboneto', 'Cópia de IMG_3211.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo policarboneto', 'Cópia de IMG_3388.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo policarboneto', 'Cópia de IMG_3509.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo policarboneto', 'Cópia de IMG_3522.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo policarboneto', 'Cópia de IMG_4266.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo policarboneto', 'Cópia de IMG_7454.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo policarboneto', 'Cópia de PHOTO-2023-07-14-16-23-30.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo policarboneto', 'Cópia de PHOTO-2024-02-27-17-18-20.jpg'),
+      getImagePath('toldo fixo', 'toldo fixo policarboneto', 'Cópia de PHOTO-2024-03-01-18-45-00.jpg')
     ],
     // Toldos Retrátil subcategories
     'aluminio': [
-      '/lovable-uploads/toldo retratil/toldo retratil aluminio/Cópia de IMG_2860.jpg',
-      '/lovable-uploads/toldo retratil/toldo retratil aluminio/Cópia de IMG_4125.jpg',
-      '/lovable-uploads/toldo retratil/toldo retratil aluminio/Cópia de IMG_4127.jpg',
-      '/lovable-uploads/toldo retratil/toldo retratil aluminio/Cópia de IMG_4222.jpg',
-      '/lovable-uploads/toldo retratil/toldo retratil aluminio/Cópia de IMG_7729.jpg'
+      getImagePath('toldo retratil', 'toldo retratil aluminio', 'Cópia de IMG_2860.jpg'),
+      getImagePath('toldo retratil', 'toldo retratil aluminio', 'Cópia de IMG_4125.jpg'),
+      getImagePath('toldo retratil', 'toldo retratil aluminio', 'Cópia de IMG_4127.jpg'),
+      getImagePath('toldo retratil', 'toldo retratil aluminio', 'Cópia de IMG_4222.jpg'),
+      getImagePath('toldo retratil', 'toldo retratil aluminio', 'Cópia de IMG_7729.jpg')
     ],
     'policarbonato': [
-      '/lovable-uploads/toldo retratil/retratil policarboneto/Cópia de 0DF4C991-9536-4C27-A493-0E28E27F2132.JPG',
-      '/lovable-uploads/toldo retratil/retratil policarboneto/Cópia de 2d0250b0-04ce-42fa-8b71-227ae9bede2d.JPG',
-      '/lovable-uploads/toldo retratil/retratil policarboneto/Cópia de ED406E46-B2C2-4E62-8BC9-AA3C490DA5C6.JPG',
-      '/lovable-uploads/toldo retratil/retratil policarboneto/Cópia de IMG_2708.jpg',
-      '/lovable-uploads/toldo retratil/retratil policarboneto/Cópia de bad28edf-7dd7-4795-884e-661b4ead3c3c.JPG'
+      getImagePath('toldo retratil', 'retratil policarboneto', 'Cópia de 0DF4C991-9536-4C27-A493-0E28E27F2132.JPG'),
+      getImagePath('toldo retratil', 'retratil policarboneto', 'Cópia de 2d0250b0-04ce-42fa-8b71-227ae9bede2d.JPG'),
+      getImagePath('toldo retratil', 'retratil policarboneto', 'Cópia de ED406E46-B2C2-4E62-8BC9-AA3C490DA5C6.JPG'),
+      getImagePath('toldo retratil', 'retratil policarboneto', 'Cópia de IMG_2708.jpg'),
+      getImagePath('toldo retratil', 'retratil policarboneto', 'Cópia de bad28edf-7dd7-4795-884e-661b4ead3c3c.JPG')
     ],
     'sanefa': [
-      '/lovable-uploads/toldo retratil/retratil sanefa/Cópia de IMG_8732.jpg',
-      '/lovable-uploads/toldo retratil/retratil sanefa/Cópia de PHOTO-2022-11-19-11-41-22.jpg',
-      '/lovable-uploads/toldo retratil/retratil sanefa/Cópia de PHOTO-2022-12-01-09-36-55.jpg',
-      '/lovable-uploads/toldo retratil/retratil sanefa/Cópia de PHOTO-2024-02-07-17-26-13.jpg'
+      getImagePath('toldo retratil', 'retratil sanefa', 'Cópia de IMG_8732.jpg'),
+      getImagePath('toldo retratil', 'retratil sanefa', 'Cópia de PHOTO-2022-11-19-11-41-22.jpg'),
+      getImagePath('toldo retratil', 'retratil sanefa', 'Cópia de PHOTO-2022-12-01-09-36-55.jpg'),
+      getImagePath('toldo retratil', 'retratil sanefa', 'Cópia de PHOTO-2024-02-07-17-26-13.jpg')
     ],
-    // Single categories
+    // Single categories  
     'cobertura-inversor-solar': [
-      '/lovable-uploads/coberturainversor/Cópia de IMG_3073.jpg',
-      '/lovable-uploads/coberturainversor/Cópia de IMG_3166.jpg',
-      '/lovable-uploads/coberturainversor/Cópia de IMG_3168.jpg',
-      '/lovable-uploads/coberturainversor/Cópia de IMG_4931.jpg',
-      '/lovable-uploads/coberturainversor/Cópia de IMG_4939.jpg'
+      `/lovable-uploads/${encodeURIComponent('coberturainversor')}/${encodeURIComponent('Cópia de IMG_3073.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('coberturainversor')}/${encodeURIComponent('Cópia de IMG_3166.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('coberturainversor')}/${encodeURIComponent('Cópia de IMG_3168.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('coberturainversor')}/${encodeURIComponent('Cópia de IMG_4931.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('coberturainversor')}/${encodeURIComponent('Cópia de IMG_4939.jpg')}`
     ],
     'garagem-telhas': [
-      '/lovable-uploads/garagem com telha/Cópia de 5d06d2d6-e2d1-4baf-b201-14067a64dbe0.JPG',
-      '/lovable-uploads/garagem com telha/Cópia de IMG_3752.jpg',
-      '/lovable-uploads/garagem com telha/Cópia de IMG_3755.jpg',
-      '/lovable-uploads/garagem com telha/Cópia de PHOTO-2023-03-21-11-19-27.jpg',
-      '/lovable-uploads/garagem com telha/Cópia de PHOTO-2023-03-21-11-19-30.jpg'
+      getImagePath('garagem com telha', '', 'Cópia de 5d06d2d6-e2d1-4baf-b201-14067a64dbe0.JPG'),
+      getImagePath('garagem com telha', '', 'Cópia de IMG_3752.jpg'),
+      getImagePath('garagem com telha', '', 'Cópia de IMG_3755.jpg'),
+      getImagePath('garagem com telha', '', 'Cópia de PHOTO-2023-03-21-11-19-27.jpg'),
+      getImagePath('garagem com telha', '', 'Cópia de PHOTO-2023-03-21-11-19-30.jpg')
     ],
     'modelo-francis': [
-      '/lovable-uploads/modelofrancis/Cópia de IMG_9229.jpg',
-      '/lovable-uploads/modelofrancis/Cópia de IMG_9241.jpg',
-      '/lovable-uploads/modelofrancis/Cópia de PHOTO-2023-12-12-19-33-27.jpg',
-      '/lovable-uploads/modelofrancis/Cópia de PHOTO-2024-05-04-14-10-44.jpg',
-      '/lovable-uploads/modelofrancis/Cópia de PHOTO-2024-11-12-17-30-24.jpg'
+      `/lovable-uploads/${encodeURIComponent('modelofrancis')}/${encodeURIComponent('Cópia de IMG_9229.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('modelofrancis')}/${encodeURIComponent('Cópia de IMG_9241.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('modelofrancis')}/${encodeURIComponent('Cópia de PHOTO-2023-12-12-19-33-27.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('modelofrancis')}/${encodeURIComponent('Cópia de PHOTO-2024-05-04-14-10-44.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('modelofrancis')}/${encodeURIComponent('Cópia de PHOTO-2024-11-12-17-30-24.jpg')}`
     ],
     'sombrites': [
-      '/lovable-uploads/sombrite/Cópia de D24EAF50-6C61-4823-A98F-9F1252AC7A85.JPG',
-      '/lovable-uploads/sombrite/Cópia de IMG_5276.jpg',
-      '/lovable-uploads/sombrite/Cópia de PHOTO-2022-12-13-11-47-53.jpg',
-      '/lovable-uploads/sombrite/Cópia de PHOTO-2022-12-13-11-47-54.jpg',
-      '/lovable-uploads/sombrite/Cópia de PHOTO-2023-01-10-09-53-11.jpg'
+      `/lovable-uploads/${encodeURIComponent('sombrite')}/${encodeURIComponent('Cópia de D24EAF50-6C61-4823-A98F-9F1252AC7A85.JPG')}`,
+      `/lovable-uploads/${encodeURIComponent('sombrite')}/${encodeURIComponent('Cópia de IMG_5276.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('sombrite')}/${encodeURIComponent('Cópia de PHOTO-2022-12-13-11-47-53.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('sombrite')}/${encodeURIComponent('Cópia de PHOTO-2022-12-13-11-47-54.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('sombrite')}/${encodeURIComponent('Cópia de PHOTO-2023-01-10-09-53-11.jpg')}`
     ],
     'tendas': [
-      '/lovable-uploads/tendas/Cópia de F2392E5E-3B54-4925-B148-8F990FE581F9.JPG',
-      '/lovable-uploads/tendas/Cópia de IMG_2984.jpg',
-      '/lovable-uploads/tendas/Cópia de IMG_2985.jpg',
-      '/lovable-uploads/tendas/Cópia de IMG_2986.jpg',
-      '/lovable-uploads/tendas/Cópia de IMG_2987.jpg',
-      '/lovable-uploads/tendas/Cópia de PHOTO-2023-01-11-16-13-34.jpg'
+      `/lovable-uploads/${encodeURIComponent('tendas')}/${encodeURIComponent('Cópia de F2392E5E-3B54-4925-B148-8F990FE581F9.JPG')}`,
+      `/lovable-uploads/${encodeURIComponent('tendas')}/${encodeURIComponent('Cópia de IMG_2984.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('tendas')}/${encodeURIComponent('Cópia de IMG_2985.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('tendas')}/${encodeURIComponent('Cópia de IMG_2986.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('tendas')}/${encodeURIComponent('Cópia de IMG_2987.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('tendas')}/${encodeURIComponent('Cópia de PHOTO-2023-01-11-16-13-34.jpg')}`
     ],
     'pergolado': [
-      '/lovable-uploads/pergolado/Cópia de IMG_7686.jpg',
-      '/lovable-uploads/pergolado/Cópia de PHOTO-2022-12-20-20-14-25.jpg',
-      '/lovable-uploads/pergolado/Cópia de PHOTO-2024-02-23-17-55-44.jpg',
-      '/lovable-uploads/pergolado/Cópia de PHOTO-2024-02-23-17-55-46.jpg',
-      '/lovable-uploads/pergolado/Cópia de PHOTO-2024-05-09-18-33-08.jpg',
-      '/lovable-uploads/pergolado/Cópia de PHOTO-2024-10-21-17-30-43.jpg',
-      '/lovable-uploads/pergolado/Cópia de e779b0e7-a6ef-4b14-9993-0881b86a0eb1.JPG'
+      `/lovable-uploads/${encodeURIComponent('pergolado')}/${encodeURIComponent('Cópia de IMG_7686.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('pergolado')}/${encodeURIComponent('Cópia de PHOTO-2022-12-20-20-14-25.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('pergolado')}/${encodeURIComponent('Cópia de PHOTO-2024-02-23-17-55-44.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('pergolado')}/${encodeURIComponent('Cópia de PHOTO-2024-02-23-17-55-46.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('pergolado')}/${encodeURIComponent('Cópia de PHOTO-2024-05-09-18-33-08.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('pergolado')}/${encodeURIComponent('Cópia de PHOTO-2024-10-21-17-30-43.jpg')}`,
+      `/lovable-uploads/${encodeURIComponent('pergolado')}/${encodeURIComponent('Cópia de e779b0e7-a6ef-4b14-9993-0881b86a0eb1.JPG')}`
     ]
   };
 
