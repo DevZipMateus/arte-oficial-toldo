@@ -6,113 +6,12 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
 
-interface ImageData {
-  [key: string]: string[];
-}
 
 const CatalogoPage = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [activeSubcategory, setActiveSubcategory] = useState<string | null>(null);
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
-  const [currentImages, setCurrentImages] = useState<string[]>([]);
 
-  // Image data simplificado usando apenas a imagem real que existe
-  const imageData: ImageData = {
-    // Para demonstração, usando uma imagem placeholder que existe
-    'toldo-lua-lona': [
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_0182.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_3094.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_3095.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_3097.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_3786.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_4412.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_4610.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de IMG_8423.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua lona/Cópia de dcd43dad-a635-425e-b561-9afaeb24bee9.JPG'
-    ],
-    'toldo-lua-policarbonato': [
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de IMG_1038.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de IMG_2124.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de IMG_4170.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de IMG_8717.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de IMG_8763.jpg',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de dba4133b-32e4-43f9-844c-7755f605d966.JPG',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de ec39413f-bb6e-455e-89d8-eda9a8bb6679.JPG',
-      '/lovable-uploads/toldo fixo/toldo lua em policarboneto/Cópia de ff5344d1-c824-4e38-94c7-389fa7cb3759.JPG'
-    ],
-    'sanefa': [
-      '/lovable-uploads/toldoretratil/sanefa/Arquivo_001.jpeg'
-    ],
-    // Imagens do toldo bola do GitHub
-    'toldo-bola': [
-      '/lovable-uploads/toldo fixo/toldo bola/Cópia de IMG_3647.jpg',
-      '/lovable-uploads/toldo fixo/toldo bola/Cópia de IMG_4035.jpg',
-      '/lovable-uploads/toldo fixo/toldo bola/Cópia de IMG_4046.jpg',
-      '/lovable-uploads/toldo fixo/toldo bola/Cópia de IMG_9613.jpg',
-      '/lovable-uploads/toldo fixo/toldo bola/Cópia de IMG_9614.jpg'
-    ],
-    'toldo-curvo-lona': [
-      '/lovable-uploads/toldo fixo/toldo curvo lona/Cópia de A7BA7293-C6A7-40BA-B0E9-2BD700AC281A.JPG',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/Cópia de IMG_1633.jpg',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/Cópia de IMG_1740.jpg',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/IMG-20250815-WA0178.jpg',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/IMG-20250815-WA0179.jpg',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/IMG-20250815-WA0180.jpg',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/IMG-20250903-WA0119.jpg',
-      '/lovable-uploads/toldo fixo/toldo curvo lona/IMG-20250903-WA0120.jpg'
-    ],
-    'toldo-fixo-lona': [
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de 1a9ad0fc-e1f1-4f9e-a5fc-e57b66ecf5f8.JPG',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de A4A2D929-B852-440D-B003-C0FBAC1FEDD5.JPG',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de IMG_3388.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de IMG_3509.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de IMG_3522.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de IMG_4266.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de IMG_7454.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de PHOTO-2023-07-14-16-23-30.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de PHOTO-2024-02-27-17-18-20.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo lona/Cópia de PHOTO-2024-03-01-18-45-00.jpg'
-    ],
-    'passarela-policarbonato': [
-      '/lovable-uploads/toldo fixo/toldo passarela em policarboneto/Cópia de 05645B1C-1ADF-4D17-A1B4-EFC87A7AB006.JPG',
-      '/lovable-uploads/toldo fixo/toldo passarela em policarboneto/Cópia de IMG_3034.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela em policarboneto/Cópia de f2af55e5-7209-4a86-8c7e-b65767941a5f.JPG',
-      '/lovable-uploads/toldo fixo/toldo passarela em policarboneto/IMG-20250704-WA0167.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela em policarboneto/IMG-20250704-WA0168.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela em policarboneto/IMG-20250704-WA0170.jpg'
-    ],
-    'passarela-lona': [
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_1835.JPG',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_3101.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_3102.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_3116.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_3121.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_3689.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/Cópia de IMG_9734.jpg',
-      '/lovable-uploads/toldo fixo/toldo passarela lona/IMG-20250829-WA0211.jpg'
-    ],
-    'toldo-reto-policarbonato': [
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de 1a9ad0fc-e1f1-4f9e-a5fc-e57b66ecf5f8.JPG',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de A4A2D929-B852-440D-B003-C0FBAC1FEDD5.JPG',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_3208.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_3211.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_3388.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_3509.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_3522.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_4266.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de IMG_7454.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de PHOTO-2023-07-14-16-23-30.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de PHOTO-2024-02-27-17-18-20.jpg',
-      '/lovable-uploads/toldo fixo/toldo fixo policarboneto/Cópia de PHOTO-2024-03-01-18-45-00.jpg'
-    ],
-    'aluminio': ['/placeholder.svg'],
-    'policarbonato': ['/placeholder.svg'],
-    'cobertura-inversor-solar': ['/placeholder.svg'],
-    'garagem-telhas': ['/placeholder.svg'],
-    'modelo-francis': ['/placeholder.svg'],
-    'sombrites': ['/placeholder.svg'],
-    'tendas': ['/placeholder.svg'],
-  };
 
   const categories = [
     {
@@ -174,21 +73,16 @@ const CatalogoPage = () => {
       setExpandedCategories(newExpanded);
       setActiveCategory(categoryId);
       setActiveSubcategory(null);
-      setCurrentImages([]);
     } else {
-      // No subcategories - show images directly
+      // No subcategories - just set active category
       setActiveCategory(categoryId);
       setActiveSubcategory(null);
-      const images = imageData[categoryId] || [];
-      setCurrentImages(images);
       setExpandedCategories(new Set());
     }
   };
 
   const handleSubcategoryClick = (subcategoryId: string) => {
     setActiveSubcategory(subcategoryId);
-    const images = imageData[subcategoryId] || [];
-    setCurrentImages(images);
   };
 
   return (
@@ -266,26 +160,6 @@ const CatalogoPage = () => {
               ))}
             </ul>
 
-            {/* Image Gallery */}
-            {currentImages.length > 0 && (
-              <div className="mt-8 pt-6 border-t border-border">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {currentImages.map((imageSrc, index) => (
-                    <div key={index} className="group">
-                      <img
-                        src={imageSrc}
-                        alt={`Produto ${index + 1}`}
-                        className="w-full h-48 object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.src = `https://via.placeholder.com/300x200.png?text=Imagem+${index + 1}`;
-                        }}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </main>
