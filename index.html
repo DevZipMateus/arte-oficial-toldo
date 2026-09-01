@@ -1,49 +1,481 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arte Toldo - Toldos e Coberturas | Porto Velho - RO</title>
-    <meta name="description" content="Arte Toldo: mais de 20 anos no mercado oferecendo toldos fixos, retráteis e soluções personalizadas. Orçamento gratuito em Porto Velho - RO." />
-    <meta name="author" content="Arte Toldo" />
-    <meta name="keywords" content="toldo, tenda, cobertura, porto velho, rondônia, toldo fixo, toldo retrátil" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arte Toldo - Toldos e Coberturas | Porto Velho - RO</title>
+  <meta name="description" content="Arte Toldo: mais de 20 anos no mercado oferecendo toldos fixos, retráteis e soluções personalizadas. Orçamento gratuito em Porto Velho - RO." />
+  <meta name="author" content="Arte Toldo" />
+  <meta name="keywords" content="toldo, tenda, cobertura, porto velho, rondônia, toldo fixo, toldo retrátil" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="/lovable-uploads/05e7ad14-3936-4e92-847f-300a1eeb16da.png" type="image/png">
+  <link rel="icon" href="images/logo.png" type="image/png">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Arte Toldo - Um legado em tendas e toldos | Porto Velho - RO" />
-    <meta property="og:description" content="Arte Toldo: mais de 20 anos no mercado oferecendo toldos fixos, retráteis e soluções personalizadas. Orçamento gratuito em Porto Velho - RO." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.artetoldo.com" />
-    <meta property="og:image" content="/lovable-uploads/05e7ad14-3936-4e92-847f-300a1eeb16da.png" />
-    <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Arte Toldo - Um legado em tendas e toldos | Porto Velho - RO" />
+  <meta property="og:description" content="Arte Toldo: mais de 20 anos no mercado oferecendo toldos fixos, retráteis e soluções personalizadas. Orçamento gratuito em Porto Velho - RO." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/logo.png" />
+  <meta property="og:locale" content="pt_BR" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Arte Toldo - Um legado em tendas e toldos | Porto Velho - RO" />
-    <meta name="twitter:description" content="Arte Toldo: mais de 20 anos no mercado oferecendo toldos fixos, retráteis e soluções personalizadas. Orçamento gratuito em Porto Velho - RO." />
-    <meta name="twitter:image" content="/lovable-uploads/05e7ad14-3936-4e92-847f-300a1eeb16da.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Arte Toldo - Um legado em tendas e toldos | Porto Velho - RO" />
+  <meta name="twitter:description" content="Arte Toldo: mais de 20 anos no mercado oferecendo toldos fixos, retráteis e soluções personalizadas. Orçamento gratuito em Porto Velho - RO." />
+  <meta name="twitter:image" content="images/logo.png" />
 
-    <link rel="canonical" href="https://www.artetoldo.com" />
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17529653649"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-17529653649');
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    
-    <!-- Rodapé MonteSite - Atualização Automática -->
-    <div id="montesite-footer-badge"></div>
-    <script src="https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe"></script>
-    
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="images/logo.png" alt="Arte Toldo - Logo">
+        <div class="header-logo-text">
+          <h1>Arte Toldo</h1>
+          <p>Um legado em tendas e toldos</p>
+        </div>
+      </a>
+
+      <nav class="header-nav">
+        <button data-scroll="inicio">Início</button>
+        <button data-scroll="sobre">Sobre</button>
+        <button data-scroll="produtos">Catálogo</button>
+        <a href="catalogo.html">Ver Catálogo Completo</a>
+        <button data-scroll="contato">Contato</button>
+      </nav>
+
+      <div class="header-cta">
+        <a href="https://lp.artetoldo.com.br" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Landing Page</a>
+        <button class="btn btn-outline" data-scroll="contato">Orçamento Grátis</button>
+      </div>
+
+      <button class="header-toggle" id="menuToggle" aria-label="Abrir menu">
+        <svg id="iconMenu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        <svg id="iconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="header-mobile-menu" id="mobileMenu">
+      <div class="container">
+        <nav class="header-mobile-nav">
+          <button data-scroll="inicio">Início</button>
+          <button data-scroll="sobre">Sobre</button>
+          <button data-scroll="produtos">Catálogo</button>
+          <a href="catalogo.html">Ver Catálogo Completo</a>
+          <button data-scroll="contato">Contato</button>
+          <a href="https://lp.artetoldo.com.br" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-full">Landing Page</a>
+          <button class="btn btn-solid btn-full" data-scroll="contato">Orçamento Grátis</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-bg" id="heroBg">
+      <div class="hero-bg-slide active" style="background-image:url('images/hero-1.jpg')"></div>
+      <div class="hero-bg-slide" style="background-image:url('images/hero-2.jpg')"></div>
+      <div class="hero-bg-slide" style="background-image:url('images/hero-3.jpg')"></div>
+      <div class="hero-bg-slide" style="background-image:url('images/hero-4.jpg')"></div>
+      <div class="hero-bg-slide" style="background-image:url('images/hero-5.jpg')"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-box">
+        <div class="hero-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          <span>Mais de 20 anos de experiência</span>
+        </div>
+
+        <h1 class="hero-title">
+          Um legado em
+          <span>tendas e toldos</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Somos uma empresa séria e responsável com produtos inovadores e tecnológicos.
+          Oferecemos serviço totalmente personalizado para o que você desejar.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" data-scroll="contato">
+            Solicitar Orçamento
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <button class="btn btn-outline-white btn-lg" data-scroll="produtos">Ver Produtos</button>
+        </div>
+
+        <div class="hero-features">
+          <div class="hero-feature">
+            <div class="hero-feature-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+            </div>
+            <h3>Qualidade Garantida</h3>
+            <p>Produtos com materiais de primeira qualidade e acabamento perfeito</p>
+          </div>
+          <div class="hero-feature">
+            <div class="hero-feature-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Atendimento Rápido</h3>
+            <p>Nosso consultor vai até você para orçamento sem compromisso</p>
+          </div>
+          <div class="hero-feature">
+            <div class="hero-feature-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <h3>20+ Anos</h3>
+            <p>Experiência consolidada no mercado de toldos e coberturas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-deco hero-deco-1"></div>
+    <div class="hero-deco hero-deco-2"></div>
+    <div class="hero-deco hero-deco-3"></div>
+  </section>
+
+  <section id="sobre" class="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Sobre a Arte Toldo</h2>
+        <p class="section-subtitle">Conheça nossa história de dedicação e excelência no mercado de toldos e coberturas</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>Um legado construído com qualidade e confiança</h3>
+          <p><strong>Arte Toldo</strong> é uma empresa consolidada no mercado há mais de 20 anos, especializada em soluções completas para toldos, tendas e coberturas. Nossa trajetória é marcada pela dedicação em oferecer produtos de alta qualidade e atendimento personalizado.</p>
+          <p>Somos uma empresa séria e responsável, comprometida em transformar espaços com soluções inovadoras e tecnológicas. Cada projeto é desenvolvido pensando nas necessidades específicas de nossos clientes, garantindo funcionalidade, durabilidade e design.</p>
+          <p>Oferecemos <strong>orçamento sem compromisso</strong> e nosso consultor vai até você para apresentar as melhores opções. Nosso serviço é totalmente personalizado para atender exatamente o que você deseja.</p>
+          <div class="about-quote">
+            <p>"Nossa missão é transformar espaços com soluções de cobertura que unem funcionalidade, beleza e durabilidade, sempre superando as expectativas dos nossos clientes."</p>
+          </div>
+        </div>
+
+        <div class="about-image-wrap">
+          <div class="about-image" style="background-image:url('images/about.jpg')">
+            <div class="about-image-content">
+              <div class="about-image-badge">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h4>20+ Anos</h4>
+              <p>de experiência no mercado</p>
+            </div>
+          </div>
+          <div class="about-deco about-deco-1"></div>
+          <div class="about-deco about-deco-2"></div>
+        </div>
+      </div>
+
+      <div class="about-values">
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>Experiência</h4>
+          <p>Mais de 20 anos no mercado, consolidando nossa expertise em toldos e coberturas.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <h4>Precisão</h4>
+          <p>Cada projeto é executado com máxima precisão e atenção aos detalhes.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+          </div>
+          <h4>Inovação</h4>
+          <p>Produtos inovadores e tecnológicos além do toldo tradicional.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+          <h4>Compromisso</h4>
+          <p>Empresa séria e responsável, sempre priorizando a satisfação do cliente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="produtos" class="products">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nosso Catálogo</h2>
+        <p class="section-subtitle">Descubra nossa ampla linha de produtos para proteção solar e cobertura. Soluções personalizadas com materiais de alta qualidade e design moderno.</p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+          </div>
+          <h3>Toldos Fixos</h3>
+          <p>Soluções permanentes de proteção solar com máxima durabilidade</p>
+          <span class="product-tag">7+ modelos disponíveis</span>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+          </div>
+          <h3>Toldos Retráteis</h3>
+          <p>Flexibilidade total com sistemas retráteis de alta qualidade</p>
+          <span class="product-tag">4+ modelos disponíveis</span>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+          </div>
+          <h3>Soluções Especiais</h3>
+          <p>Sombrites, tendas, garagens e coberturas personalizadas</p>
+          <span class="product-tag">5+ categorias disponíveis</span>
+        </div>
+      </div>
+
+      <div class="products-cta">
+        <div class="products-cta-box">
+          <div class="products-cta-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Explore Nosso Catálogo Completo</h3>
+          <p>Mais de 20 modelos diferentes de toldos, coberturas e soluções de proteção solar. Encontre a opção perfeita para seu projeto.</p>
+          <a href="catalogo.html" class="btn btn-catalog">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>Veja Nosso Catálogo</span>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="products-stats">
+          <div>
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Modelos Disponíveis</div>
+          </div>
+          <div>
+            <div class="stat-number">7</div>
+            <div class="stat-label">Categorias de Produtos</div>
+          </div>
+          <div>
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Personalizável</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trabalhos" class="gallery">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Um Pouco de Nossos Trabalhos</h2>
+        <p class="section-subtitle">Confira alguns dos projetos que realizamos com qualidade e excelência. Cada trabalho é único e personalizado para atender as necessidades específicas de nossos clientes.</p>
+      </div>
+
+      <div class="gallery-carousel">
+        <button class="gallery-nav prev" id="galPrev" aria-label="Anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="gallery-track" id="galTrack">
+          <div class="gallery-item"><div class="gallery-card"><img src="images/gallery-1.jpg" alt="Toldo retrátil vermelho instalado" loading="lazy"></div></div>
+          <div class="gallery-item"><div class="gallery-card"><img src="images/gallery-2.jpg" alt="Cobertura em policarbonato com estrutura metálica" loading="lazy"></div></div>
+          <div class="gallery-item"><div class="gallery-card"><img src="images/gallery-3.jpg" alt="Toldo de passarela com material translúcido" loading="lazy"></div></div>
+          <div class="gallery-item"><div class="gallery-card"><img src="images/gallery-4.jpg" alt="Cobertura estrutural com policarbonato alveolar" loading="lazy"></div></div>
+          <div class="gallery-item"><div class="gallery-card"><img src="images/gallery-5.jpg" alt="Toldo para garagem com cortinas laterais" loading="lazy"></div></div>
+          <div class="gallery-item"><div class="gallery-card"><img src="images/gallery-6.jpg" alt="Cobertura curva em policarbonato" loading="lazy"></div></div>
+          <div class="gallery-item"><div class="gallery-card"><img src="images/gallery-7.jpg" alt="Pergolado com cobertura em policarbonato" loading="lazy"></div></div>
+          <div class="gallery-item"><div class="gallery-card"><img src="images/gallery-8.jpg" alt="Cobertura para estacionamento" loading="lazy"></div></div>
+          <div class="gallery-item"><div class="gallery-card"><img src="images/gallery-9.jpg" alt="Toldo retrátil moderno instalado" loading="lazy"></div></div>
+          <div class="gallery-item"><div class="gallery-card"><img src="images/gallery-10.jpg" alt="Toldo retrátil lateral instalado em área externa" loading="lazy"></div></div>
+          <div class="gallery-item"><div class="gallery-card"><img src="images/gallery-11.jpg" alt="Cortinas laterais para varanda com estrutura em alvenaria" loading="lazy"></div></div>
+          <div class="gallery-item"><div class="gallery-card"><img src="images/gallery-12.jpg" alt="Cobertura metálica para garagem com estrutura robusta" loading="lazy"></div></div>
+        </div>
+        <button class="gallery-nav next" id="galNext" aria-label="Próximo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <div class="gallery-footer">
+        <p>Gostou do que viu? Entre em contato conosco para um orçamento personalizado!</p>
+        <button class="btn btn-solid" data-scroll="contato">Solicitar Orçamento</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Entre em Contato</h2>
+        <p class="section-subtitle">Nossa equipe está pronta para atender você. Solicite seu orçamento sem compromisso!</p>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-grid">
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <h3>Telefone</h3>
+                <p>(69) 99306-7833</p>
+                <a href="https://wa.me/5569993067833" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ligar agora</a>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <h3>E-mail</h3>
+                <p>artetoldocomercial@gmail.com</p>
+                <a href="mailto:artetoldocomercial@gmail.com" class="btn btn-outline">Enviar e-mail</a>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h3>Endereço</h3>
+                <p>Rua Piauí, 5816 - Lagoa
+Porto Velho - RO, 76812-126</p>
+                <a href="https://share.google/5aivFj5AS0SQsAMkg" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Ver no mapa</a>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <h3>Horário</h3>
+                <p>Segunda a sexta
+8h às 18h</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-card">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Siga-nos nas redes sociais
+            </h3>
+            <div class="social-links">
+              <a href="https://instagram.com/artetoldo_portovelho" target="_blank" rel="noopener noreferrer" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <span><span class="name">Instagram</span><br><span class="handle">@artetoldo_portovelho</span></span>
+              </a>
+              <a href="https://www.facebook.com/share/19fJfhdKqo/" target="_blank" rel="noopener noreferrer" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                <span><span class="name">Facebook</span><br><span class="handle">Arte Toldo</span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-side">
+          <div class="cta-card">
+            <div class="cta-card-icon">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>Orçamento Grátis</h3>
+            <p>Nosso consultor vai até você para apresentar as melhores soluções</p>
+            <a href="https://wa.me/5569993067833?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20toldo." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              WhatsApp
+            </a>
+            <a href="tel:+5569993067833" class="btn btn-outline-white btn-full">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Ligar Agora
+            </a>
+          </div>
+
+          <div class="map-card">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Nossa Localização
+            </h3>
+            <div class="map-frame">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.1234567890123!2d-63.87654321!3d-8.76543210!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwNDUnNTEuNiJTIDYzwrA1Mic0Ny41Ilc!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização da Arte Toldo"></iframe>
+            </div>
+            <a href="https://share.google/5aivFj5AS0SQsAMkg" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Abrir no Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="images/logo.png" alt="Arte Toldo - Logo">
+            <div>
+              <h3>Arte Toldo</h3>
+              <p>Um legado em tendas e toldos</p>
+            </div>
+          </div>
+          <p class="footer-desc">Empresa séria e responsável com mais de 20 anos no mercado, oferecendo produtos inovadores e tecnológicos. Serviço totalmente personalizado para o que você desejar.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/artetoldo_portovelho" target="_blank" rel="noopener noreferrer" aria-label="Seguir no Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.facebook.com/share/19fJfhdKqo/" target="_blank" rel="noopener noreferrer" aria-label="Seguir no Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Navegação</h4>
+          <div class="footer-links">
+            <button data-scroll="inicio">Início</button>
+            <button data-scroll="sobre">Sobre</button>
+            <button data-scroll="produtos">Produtos</button>
+            <button data-scroll="contato">Contato</button>
+          </div>
+        </div>
+
+        <div>
+          <h4>Contato</h4>
+          <ul class="footer-contact-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="https://wa.me/5569993067833">(69) 99306-7833</a>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:artetoldocomercial@gmail.com">artetoldocomercial@gmail.com</a>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <p>Rua Piauí, 5816 - Lagoa<br>Porto Velho - RO<br>76812-126</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="footer-divider">
+
+      <div class="footer-bottom">
+        <div>
+          <p>&copy; 2024 Arte Toldo Comércio, Serviços e Representação Ltda.</p>
+          <p>CNPJ: 42.416.498/0001-18</p>
+        </div>
+        <div>
+          <p>Segunda a sexta: 8h às 18h</p>
+          <p>Porto Velho - Rondônia</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5569993067833?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20toldo." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Conversar no WhatsApp" title="Fale conosco no WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </a>
+
+  <script src="js/script.js"></script>
+</body>
 </html>
